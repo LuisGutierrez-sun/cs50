@@ -1,0 +1,61 @@
+#include <cs50.h>
+#include <stdio.h>
+
+//Creation of variables that we are going to use:
+int height, width, i, j, h, k;
+int get_positive_int(string prompt);
+
+//Start 
+int main(void)
+{
+    height = get_positive_int("Define height of your piramyd: ");
+    //We assign the value from height to witdh
+    width = height;
+
+    for (i = 1; i <= height; i++)
+    {
+        for (j = 1; j < width; j++)
+        {
+            printf(" ");
+        }
+        
+        for (h = width; h <= height; h++)
+        {
+            printf("#");
+        }
+//This line prints inter spaces
+        printf("  ");
+
+        for (h = width; h <= height; h++)
+        {
+            printf("#");
+        }
+
+        width--;
+               
+//This line prints space.
+        if (height >= 1)
+        {
+            printf("\n");
+        }
+       
+    }
+}
+
+
+
+
+
+
+
+//Define function to ask for a positive integer:
+int get_positive_int(string prompt)
+{
+    int n;
+    do
+    {
+        n = get_int("%s", prompt);
+    }
+    while (n < 1 || n > 8);
+    return n;
+}
